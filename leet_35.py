@@ -27,17 +27,17 @@ target = 2
 
 
 def searchInsert(nums, target: int) -> int:
-    start = 0
-    end = len(nums)-1
-    while (start <= end):
-        middle = (start+end)//2
-        if nums[middle] == target:
-            return middle
-        elif nums[middle] > target:
-            end = end - 1
+    left = 0
+    right = len(nums)-1
+    while left <= right:
+        mid = left+(right-left)//2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left += 1
         else:
-            start += 1
-    return start
+            right -= 1
+    return left
 
 
 print(searchInsert(nums, target))
