@@ -17,5 +17,17 @@ def reverseWords(s: str) -> str:
     return s
 
 
+def reversewords(self, s: str) -> str:
+    x = s.split()
+    y = ''
+    for word in x:
+        word = word[::-1]
+        y += word
+        y += ' '
+    y = y.strip()
+    return y
+
+
 s = "Let's take LeetCode contest"
 print(reverseWords(s))
+print(reversewords(s))
