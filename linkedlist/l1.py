@@ -16,7 +16,7 @@ class LinkedList:
             print("Linked List is empty")
         temp = self.head
         while temp != None:
-            print(temp.data)
+            print(f"{temp.data}--->",end="")
             temp = temp.next
             
     def pushbegning(self,new_data):
@@ -24,7 +24,20 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
         
-    
+    def pushinend(self,new_data):
+        new_node = Node(new_data)
+        
+        # case 1 : when linked list is empty
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        # case2 : when linken list is not empty then we have to traverse till the end
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        
+        temp.next = new_node
         
     
         
@@ -43,6 +56,8 @@ if __name__ == "__main__":
     n4 = Node(4)
     n5 = Node(5)
     
+    
+    
     ll = LinkedList()
     ll.head = n1
     n1.next = n2
@@ -52,3 +67,12 @@ if __name__ == "__main__":
     
     
     ll.traverse_list()
+    
+    # ll.pushbegning(6)
+    ll.pushinend(6)
+    
+    print()
+    
+    ll.traverse_list()
+    
+    
